@@ -5,6 +5,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone:"",
     subject: "",
     message: "",
   });
@@ -33,7 +34,7 @@ export default function Contact() {
       const data = await res.json();
       if (res.ok) {
         setSuccess(true);
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "",phone:"", subject: "", message: "" });
       }
       setStatus(data.message);
     } catch {
@@ -81,7 +82,7 @@ export default function Contact() {
                   <p className="text-xs text-slate-400 leading-relaxed uppercase tracking-widest">
                      <a  href="https://www.google.com/maps/search/?api=1&query=491-C/19+Chandan+Complex+Opp+Himalaya+Factory+GIDC+Makarpura+Vadodara+390010"
                       target="_blank" rel="noopener noreferrer">       
-                 491-C/19, Chandan Complex, <br />
+                    491-C/19, Chandan Complex, <br />
                     Opp. Himalaya Factory, G.I.D.C., <br />
                     Makarpura, Vadodara-390010.
                     </a>
@@ -114,6 +115,14 @@ export default function Contact() {
                     type="email" name="email" value={formData.email} onChange={handleChange} required
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#007BFF] focus:outline-none transition-all font-bold text-[#001F3F]"
                     placeholder="Enter Email ID"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Contact</label>
+                  <input
+                    type="text" name="phone" value={formData.phone} onChange={handleChange} required maxLength={13}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:ring-2 focus:ring-[#007BFF] focus:outline-none transition-all font-bold text-[#001F3F]"
+                    placeholder="Enter Conatct Number"
                   />
                 </div>
                 <div>
